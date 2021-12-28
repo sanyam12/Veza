@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "679840716485",
+    "project_id": "veza-6305f",
+    "storage_bucket": "veza-6305f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679840716485:android:a49493c3988931a8ba42ac",
+        "android_client_info": {
+          "package_name": "com.unravel.veza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679840716485-cqqskm24viniivth0jkajloaiaag25td.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unravel.veza",
+            "certificate_hash": "f13174fad264bc18f4372b2c446ba9af407a7296"
+          }
+        },
+        {
+          "client_id": "679840716485-p28mges69767sqdonq54u86i14fm1v0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcCURwKYet3tNcpCnzU5FzEbQ6YQ8yfXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679840716485-p28mges69767sqdonq54u86i14fm1v0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
