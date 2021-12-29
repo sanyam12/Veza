@@ -10,17 +10,17 @@ class login:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        val signup: Button = findViewById(R.id.signup)
-        val signin: Button = findViewById(R.id.signin)
+        val signupbt: Button = findViewById(R.id.signup)
+        val signinbt: Button = findViewById(R.id.signin)
 
-        signin.setOnClickListener{
+        signinbt.setOnClickListener{
             val intent = Intent(this, SignIn::class.java)
             startActivity(intent)
             finish()
         }
 
-        signup.setOnClickListener{
-            val intent: Intent = Intent(this, Signup::class.java)
+        signupbt.setOnClickListener{
+            val intent: Intent = Intent(this, SignUp::class.java)
             startActivity(intent)
             finish()
         }

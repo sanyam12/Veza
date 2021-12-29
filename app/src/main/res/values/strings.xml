@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Veza</string>
+    <string name="pass_description">Use 8 or more words with a mix of letters, numbers, and symbols</string>
 </resources>

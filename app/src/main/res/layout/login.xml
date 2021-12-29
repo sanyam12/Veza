@@ -24,14 +24,15 @@
         android:textAllCaps="false"
         android:theme="@style/sea_green"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        android:background="@drawable/round50"/>
 
     <Button
         android:id="@+id/signin"
         android:layout_width="109dp"
         android:layout_height="53dp"
         android:layout_marginTop="656dp"
-        android:background="@drawable/round16"
+        android:background="@drawable/round50"
         android:text="Sign In"
         android:textAllCaps="false"
         android:textColor="@color/white"
