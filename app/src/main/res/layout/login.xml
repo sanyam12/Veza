@@ -26,6 +26,7 @@
         android:background="@drawable/round50"
         android:text="Sign Up"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:theme="@style/sea_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
