@@ -8,11 +8,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="465dp"
-        android:layout_height="774dp"
-        android:layout_marginBottom="28dp"
+        android:layout_width="416dp"
+        android:layout_height="695dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138"
         app:srcCompat="@drawable/login_image" />
 
     <Button
@@ -20,7 +22,7 @@
         android:layout_width="121dp"
         android:layout_height="62dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="652dp"
+        android:layout_marginTop="612dp"
         android:background="@drawable/round50"
         android:text="Sign Up"
         android:textAllCaps="false"
@@ -32,7 +34,7 @@
         android:id="@+id/signin"
         android:layout_width="124dp"
         android:layout_height="60dp"
-        android:layout_marginTop="652dp"
+        android:layout_marginTop="612dp"
         android:background="@drawable/round50"
         android:text="Sign In"
         android:textAllCaps="false"

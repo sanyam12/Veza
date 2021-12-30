@@ -3,7 +3,7 @@
     <style name="Theme.Veza" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/jungle_green</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -22,4 +22,7 @@
         <item name="colorPrimary">#2E8B57</item>
     </style>
 
+    <style name="jungle_green" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/jungle_green</item>
+    </style>
 </resources>
