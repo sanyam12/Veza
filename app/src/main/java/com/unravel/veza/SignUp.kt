@@ -25,11 +25,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import androidx.core.app.ActivityCompat.startActivityForResult
 
 
-
-
-
-
-
 class SignUp:AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +44,6 @@ class SignUp:AppCompatActivity() {
         val enterMail: EditText = findViewById(R.id.editMail)
         val enterPass: EditText = findViewById(R.id.editPassword)
         val repPass: EditText = findViewById(R.id.editrepPassword)
-        val google: Button = findViewById(R.id.button2)
 
         signupbt.setOnClickListener{
             when{
@@ -111,15 +105,6 @@ class SignUp:AppCompatActivity() {
             }
         }
 
-        google.setOnClickListener{
-            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
-            val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-
-            val account = GoogleSignIn.getLastSignedInAccount(this)
-
-        }
 
     }
 
