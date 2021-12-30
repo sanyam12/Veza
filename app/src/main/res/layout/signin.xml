@@ -120,11 +120,13 @@
         android:id="@+id/textView"
         android:layout_width="32dp"
         android:layout_height="25dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="8dp"
         android:text="OR"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 

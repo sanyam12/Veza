@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
@@ -19,6 +20,13 @@ class SignIn:AppCompatActivity() {
         val signinBt: Button = findViewById(R.id.button3)
         val enterMail: EditText = findViewById(R.id.signinEditMail)
         val enterPass: EditText = findViewById(R.id.signinEditPassword)
+        val bt: ImageButton = findViewById(R.id.imageButton)
+        bt.setOnClickListener{
+            val intent = Intent(this, login::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         signinBt.setOnClickListener{
             when{
                 TextUtils.isEmpty(enterMail.text.toString().trim{it<=' '})-> {

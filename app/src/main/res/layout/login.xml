@@ -10,23 +10,24 @@
         android:id="@+id/imageView"
         android:layout_width="416dp"
         android:layout_height="695dp"
+        android:layout_marginBottom="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138"
-        app:srcCompat="@drawable/login_image" />
+        app:srcCompat="@drawable/login_pic" />
 
     <Button
         android:id="@+id/signup"
         android:layout_width="121dp"
         android:layout_height="62dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="612dp"
+        android:layout_marginTop="676dp"
         android:background="@drawable/round50"
         android:text="Sign Up"
         android:textAllCaps="false"
         android:textColor="@color/white"
+        android:textStyle="bold"
         android:theme="@style/sea_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
@@ -35,7 +36,7 @@
         android:id="@+id/signin"
         android:layout_width="124dp"
         android:layout_height="60dp"
-        android:layout_marginTop="612dp"
+        android:layout_marginTop="676dp"
         android:background="@drawable/round50"
         android:text="Sign In"
         android:textAllCaps="false"
