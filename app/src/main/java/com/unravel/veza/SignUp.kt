@@ -118,12 +118,12 @@ class SignUp:AppCompatActivity() {
             val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
 
             val account = GoogleSignIn.getLastSignedInAccount(this)
-            signin(mGoogleSignInClient)
+
         }
 
     }
 
-    private fun signin(var mGoogleSignInClient:Any)
+    private fun signin()
     {
 
     }
