@@ -21,6 +21,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.ktx.Firebase
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import androidx.core.app.ActivityCompat.startActivityForResult
+
+
+
+
+
+
 
 class SignUp:AppCompatActivity() {
 
@@ -41,6 +49,8 @@ class SignUp:AppCompatActivity() {
         val enterMail: EditText = findViewById(R.id.editMail)
         val enterPass: EditText = findViewById(R.id.editPassword)
         val repPass: EditText = findViewById(R.id.editrepPassword)
+        val google: Button = findViewById(R.id.button2)
+
         signupbt.setOnClickListener{
             when{
 
@@ -52,7 +62,7 @@ class SignUp:AppCompatActivity() {
                     ).show()
                 }
 
-                TextUtils.isEmpty(enterPass.text.toString())->{
+                TextUtils.isEmpty(enterPass.text.toString().trim{it<=' '})->{
                     Toast.makeText(
                         this,
                         "Please enter a password",
@@ -60,7 +70,7 @@ class SignUp:AppCompatActivity() {
                     ).show()
                 }
 
-                TextUtils.equals(enterPass.text.toString(), repPass.text.toString())->{
+                !(TextUtils.equals(enterPass.text.toString(), repPass.text.toString()))->{
                     Toast.makeText(
                         this,
                         "Passwords do not match",
@@ -100,6 +110,21 @@ class SignUp:AppCompatActivity() {
                 }
             }
         }
+
+        google.setOnClickListener{
+            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build()
+            val mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
+            val account = GoogleSignIn.getLastSignedInAccount(this)
+            signin(mGoogleSignInClient)
+        }
+
+    }
+
+    private fun signin(var mGoogleSignInClient:Any)
+    {
 
     }
 

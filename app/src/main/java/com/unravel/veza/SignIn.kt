@@ -35,36 +35,27 @@ class SignIn:AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
-                else->{
-                    val email: String = enterMail.text.toString().trim{it<=' '}
-                    val password: String = enterPass.text.toString().trim{it<=' '}
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
-                        .addOnCompleteListener{
-                            OnCompleteListener<AuthResult>{task->
-                                if(task.isSuccessful) {
-                                    val fireBaseUser: FirebaseUser = task.result!!.user!!
-                                    Toast.makeText(
-                                        this,
-                                        "You are now signed in",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-
-                                    val intent: Intent = Intent(this, PostAct::class.java)
-                                    intent.flags =
-                                        Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                    intent.putExtra("userid", fireBaseUser.uid)
-                                    intent.putExtra("name", fireBaseUser.displayName)
-                                    intent.putExtra("mail", fireBaseUser.email)
+                else-> {
+                    val mail : String = enterMail.text.toString()
+                    val password :String = enterPass.text.toString()
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(mail,password)
+                        .addOnCompleteListener(
+                            OnCompleteListener<AuthResult> {task->
+                                if(task.isSuccessful)
+                                {
+                                    val firebaseUser:FirebaseUser = task.result!!.user!!
+                                    Toast.makeText(this, "LOGGED IN", Toast.LENGTH_SHORT).show()
+                                    val intent = Intent (this, PostAct::class.java)
                                     startActivity(intent)
                                     finish()
-                                }else
+                                }
+                                else
                                 {
-                                    Toast.makeText(this, task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, task.exception!!.toString(), Toast.LENGTH_SHORT).show()
                                 }
 
                             }
-                        }
+                        )
                 }
             }
         }
