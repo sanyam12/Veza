@@ -29,11 +29,14 @@
     <style name="jungle_green" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/jungle_green</item>
     </style>
+
     <style name="Theme.Veza.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="Theme.Veza.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.Veza.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

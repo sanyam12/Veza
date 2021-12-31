@@ -20,4 +20,8 @@
         since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
         type specimen book"
     </string>
+    <string name="title_activity_home">home</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
 </resources>
