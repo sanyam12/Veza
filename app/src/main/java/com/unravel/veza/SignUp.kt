@@ -87,7 +87,7 @@ class SignUp:AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
 
-                                    val intent = Intent(this, PostAct::class.java)
+                                    val intent = Intent(this, home::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("User_id", firebaseUser.uid)
                                     intent.putExtra("email-id", firebaseUser.email)

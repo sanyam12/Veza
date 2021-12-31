@@ -23,7 +23,7 @@ class splash_screen : AppCompatActivity() {
         }else
         {
             Handler().postDelayed({
-                val intent: Intent = Intent(this, PostAct::class.java)
+                val intent: Intent = Intent(this, home::class.java)
                 startActivity(intent)
                 finish()
             }, a.toLong())
