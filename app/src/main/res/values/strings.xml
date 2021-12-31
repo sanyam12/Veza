@@ -24,4 +24,14 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
+    <string name="_30_00">30:00</string>
+    <string name="finished">Finished</string>
+    <string name="email">email</string>
+    <string name="sign_up">signup</string>
+    <string name="enter_you_mail_id">enteryouremailid</string>
+    <string name="password">password</string>
+    <string name="repeat_password">repeatpassword</string>
+    <string name="enter_your_password">enteryourpassword</string>
+    <string name="login_in_with_google">loginwithgoogle</string>
+    <string name="or">or</string>
 </resources>
