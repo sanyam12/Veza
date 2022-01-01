@@ -13,6 +13,7 @@ class Timer : AppCompatActivity() {
         setContentView(R.layout.activity_timer)
         title = "POMODORO"
     }
+
     fun startTimer(view: View){
         val countTime: TextView = findViewById(R.id.textView3)
         object : CountDownTimer(1000 * 1800, 1000) {
