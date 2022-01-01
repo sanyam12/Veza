@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/avatar_1.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/avatar_13.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/round16.xml" value="0.31145833333333334" />
+        <entry key="app/src/main/res/drawable/round_oval.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/font/segeo_print.xml" value="0.3255208333333333" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_post_screen.xml" value="0.23550724637681159" />
@@ -19,7 +20,7 @@
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_new.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.4593601928953935" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header_home.xml" value="0.5" />
