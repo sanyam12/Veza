@@ -13,8 +13,11 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import com.unravel.veza.PostAct
 import com.unravel.veza.R
 import com.unravel.veza.databinding.FragmentProfileBinding
@@ -55,12 +58,20 @@ class ProfileFragment : Fragment() {
         }
 
         val txt: TextView = view.findViewById(R.id.textView5)
-        txt.text = "Anu Goyal"
+        val db = FirebaseFirestore.getInstance()
+        val mauth = FirebaseAuth.getInstance()
+        db.collection("desc").document(mauth.uid.toString()).get().addOnSuccessListener {
+            txt.text = it.get("displayName").toString()
+
+        }
+
 
         val bt: Button = view.findViewById(R.id.button5)
         bt.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
+
             val intent = Intent(activity, login::class.java)
+            intent.putExtra("bool", "true")
             startActivity(intent)
         }
 
@@ -70,21 +81,4 @@ class ProfileFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
-
-
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        val id: Int = resources.getIdentifier("button5", "id", "com.unravel.veza.ui.profile")
-//        val v: View = requireView().findViewById(id)
-//        v.setOnClickListener{
-//            FirebaseAuth.getInstance().signOut()
-//            val intent = Intent(activity, login::class.java)
-//
-//        }
-//
-//
-//    }
 }

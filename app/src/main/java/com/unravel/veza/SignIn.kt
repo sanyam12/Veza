@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -30,18 +31,24 @@ class SignIn:AppCompatActivity() {
         signinBt.setOnClickListener{
             when{
                 TextUtils.isEmpty(enterMail.text.toString().trim{it<=' '})-> {
-                    Toast.makeText(
-                        this,
-                        "Enter mail please",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        this,
+//                        "Enter mail please",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+
+                    Snackbar.make(findViewById(R.id.signinEditMail), "Enter mail please", 2000)
+                        .setAction("action", null).show()
                 }
                 TextUtils.isEmpty(enterPass.text.toString().trim{it<=' '})-> {
-                    Toast.makeText(
-                        this,
-                        "Enter Password please",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        this,
+//                        "Enter Password please",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+
+                    Snackbar.make(findViewById(R.id.signinEditMail), "Enter Password please", 2000)
+                        .setAction("action", null).show()
                 }
                 else-> {
                     val mail : String = enterMail.text.toString()
@@ -53,6 +60,10 @@ class SignIn:AppCompatActivity() {
                                 {
                                     val firebaseUser:FirebaseUser = task.result!!.user!!
                                     Toast.makeText(this, "LOGGED IN", Toast.LENGTH_SHORT).show()
+
+//                                    Snackbar.make(findViewById(R.id.textView5), "LOGGED IN", 2000)
+//                                        .setAction("action", null).show()
+
                                     val intent = Intent (this, home::class.java)
                                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                                     intent.putExtra("User_id", firebaseUser.uid)
@@ -62,7 +73,10 @@ class SignIn:AppCompatActivity() {
                                 }
                                 else
                                 {
-                                    Toast.makeText(this, task.exception!!.toString(), Toast.LENGTH_SHORT).show()
+                                    //Toast.makeText(this, task.exception!!.toString(), Toast.LENGTH_SHORT).show()
+
+                                    Snackbar.make(findViewById(R.id.signinEditMail), task.exception!!.toString(), Snackbar.LENGTH_LONG)
+                                        .setAction("action", null).show()
                                 }
 
                             }
