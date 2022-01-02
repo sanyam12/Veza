@@ -40,6 +40,7 @@ class signup_details : AppCompatActivity() {
                     mp["first"] = enterFirstName.text.toString()
                     mp["last"] = enterLastName.text.toString()
                     mp["displayName"] = enterDisplayName.text.toString()
+                    mp["mail"] = intent.getStringExtra("mail").toString()
                     val db = FirebaseFirestore.getInstance()
                     db.collection("desc").document(mauth.uid.toString()).set(mp).addOnSuccessListener {
                         Snackbar.make(save, "Data Saved", Snackbar.LENGTH_SHORT)

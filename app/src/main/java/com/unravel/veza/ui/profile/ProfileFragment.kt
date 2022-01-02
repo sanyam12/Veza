@@ -57,12 +57,20 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
 
-        val txt: TextView = view.findViewById(R.id.textView5)
+        val name: TextView = view.findViewById(R.id.textView5)
+        val displayName: TextView = view.findViewById(R.id.textView11)
+        val mail: TextView = view.findViewById(R.id.textView7)
         val db = FirebaseFirestore.getInstance()
         val mauth = FirebaseAuth.getInstance()
         db.collection("desc").document(mauth.uid.toString()).get().addOnSuccessListener {
-            txt.text = it.get("displayName").toString()
-
+            var first = it.get("first").toString()
+            var last = it.get("last").toString()
+            var display = it.get("displayName").toString()
+            val email = it.get("mail").toString()
+            first+=" "+ last
+            name.text = first
+            displayName.text = display
+            mail.text = email
         }
 
 
