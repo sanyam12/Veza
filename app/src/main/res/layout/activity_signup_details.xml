@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".signup_details"
-    android:background="@drawable/login_back">
+    android:background="@drawable/whitebackground">
 
 
     <TextView
@@ -44,6 +44,8 @@
         android:layout_height="47dp"
         android:ems="10"
         android:hint="First Name"
+        android:background="@drawable/round50"
+        android:backgroundTint="@color/jungle_green"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
@@ -71,6 +73,9 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Last Name"
+        android:background="@drawable/round50"
+        android:backgroundTint="@color/jungle_green"
+
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
@@ -94,11 +99,13 @@
     <EditText
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="47dp"
         android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Display Name"
+        android:background="@drawable/round50"
+        android:backgroundTint="@color/jungle_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,4 +123,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
