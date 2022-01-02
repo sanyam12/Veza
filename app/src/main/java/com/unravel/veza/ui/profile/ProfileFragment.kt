@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -56,6 +58,11 @@ class ProfileFragment : Fragment() {
             val intent = Intent(activity, home::class.java)
             startActivity(intent)
         }
+
+        val dp: ImageView = view.findViewById(R.id.imageView5)
+        dp.setImageResource(R.drawable.profile)
+
+
 
         val name: TextView = view.findViewById(R.id.textView5)
         val displayName: TextView = view.findViewById(R.id.textView11)

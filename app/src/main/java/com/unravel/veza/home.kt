@@ -56,17 +56,10 @@ private lateinit var binding: ActivityHomeBinding
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-
-//        val id: Int = resources.getIdentifier("button5", "id", "com.unravel.veza.ui.profile")
-//        val v: View = findViewById(id)
-//        v.setOnClickListener{
-//            FirebaseAuth.getInstance().signOut()
-//            val intent = Intent(this, login::class.java)
-//
-//        }
-//        val id: Int = resources.getIdentifier("button5", "id", "com.unravel.veza")
-//        val v: View = findViewById(id)
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        val header = navigationView.getHeaderView(0)
+        val bt = header.findViewById<ImageButton>(R.id.imageButton2)
+        bt.setImageResource(R.drawable.logo)
     }
-
 
 }
