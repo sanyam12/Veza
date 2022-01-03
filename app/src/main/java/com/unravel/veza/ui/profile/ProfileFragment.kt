@@ -90,10 +90,6 @@ class ProfileFragment : Fragment() {
 
 
 
-
-
-
-
         val name: TextView = view.findViewById(R.id.textView5)
 
 
