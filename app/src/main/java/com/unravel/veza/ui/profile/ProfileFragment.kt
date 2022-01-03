@@ -51,6 +51,7 @@ class ProfileFragment : Fragment() {
     private lateinit var imageUri: Uri
     private var storage: FirebaseStorage = FirebaseStorage.getInstance()
     private var storageReference = storage.getReference()
+    private var isclick: Boolean = false
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -129,7 +130,11 @@ class ProfileFragment : Fragment() {
 
         val save: Button = view.findViewById(R.id.button7)
         save.setOnClickListener{
-            UploadImage()
+            if(isclick)
+                UploadImage()
+            else
+                Snackbar.make(view, "No changes to save,...", Snackbar.LENGTH_SHORT)
+                    .setAction("action", null).show()
         }
 
 
@@ -140,7 +145,7 @@ class ProfileFragment : Fragment() {
         val a: Intent = Intent(Intent.ACTION_GET_CONTENT).setType("image/*")
         val chooser: Intent = Intent.createChooser(a,"Select image from here")
         startActivityForResult(chooser, 100)
-
+        isclick=true
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
