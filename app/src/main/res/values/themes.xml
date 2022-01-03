@@ -28,6 +28,7 @@
 
     <style name="jungle_green" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/jungle_green</item>
+        <item name="floatingActionButtonStyle">@color/black</item>
     </style>
     <style name="Theme.Veza.NoActionBar">
         <item name="windowActionBar">false</item>
