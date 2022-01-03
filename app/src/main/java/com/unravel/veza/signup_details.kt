@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -40,7 +41,8 @@ class signup_details : AppCompatActivity() {
                     mp["first"] = enterFirstName.text.toString()
                     mp["last"] = enterLastName.text.toString()
                     mp["displayName"] = enterDisplayName.text.toString()
-                    mp["mail"] = intent.getStringExtra("mail").toString()
+                    mp["mail"] = intent.getStringExtra("email-id").toString()
+
                     val db = FirebaseFirestore.getInstance()
                     db.collection("desc").document(mauth.uid.toString()).set(mp).addOnSuccessListener {
                         Snackbar.make(save, "Data Saved", Snackbar.LENGTH_SHORT)
