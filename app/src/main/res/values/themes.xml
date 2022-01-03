@@ -33,7 +33,12 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="Theme.Veza.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Veza.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="colorPrimary">@color/jungle_green</item>
+    </style>
     <style name="Theme.Veza.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="text_theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

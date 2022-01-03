@@ -1,5 +1,6 @@
 package com.unravel.veza.ui.slideshow
 
+import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
