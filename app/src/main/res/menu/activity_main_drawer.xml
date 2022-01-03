@@ -24,5 +24,9 @@
             android:id="@+id/timer"
             android:icon="@drawable/logo"
             android:title="Timer"/>
+        <item
+            android:id="@+id/notesFragment"
+            android:icon="@drawable/logo"
+            android:title="Notes"/>
     </group>
 </menu>
