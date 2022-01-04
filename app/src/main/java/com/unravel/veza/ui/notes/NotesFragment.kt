@@ -57,8 +57,10 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val uploadCard: View = view.findViewById<View>(R.id.recycler_notes)
+        uploadCard.visibility = View.GONE
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_notes)
+        recyclerView.visibility = View.VISIBLE
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.adapter
         val userlist: ArrayList<PostDB> = arrayListOf()
@@ -71,11 +73,9 @@ class NotesFragment : Fragment() {
             adapter.notifyDataSetChanged()
         }
 
-        val uploadCard: View = view.findViewById<View>(R.id.recycler_notes)
-        uploadCard.visibility = View.GONE
         val newNotes: FloatingActionButton = view.findViewById(R.id.floatingActionButton3)
         newNotes.setOnClickListener{
-            uploadCard.visibility = View.VISIBLE
+            //uploadCard.visibility = View.VISIBLE
         }
         val selectBt: Button = view.findViewById(R.id.button4)
         selectBt.setOnClickListener{
@@ -88,7 +88,8 @@ class NotesFragment : Fragment() {
         }
         val save: Button = view.findViewById(R.id.button8)
         save.setOnClickListener{
-            save.visibility = View.VISIBLE
+            UploadPdf()
+            uploadCard.visibility = View.GONE
         }
 
 

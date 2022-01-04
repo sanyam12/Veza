@@ -36,6 +36,10 @@
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="@+id/recycler_notes"
         app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:elevation="40dp"
+        android:outlineAmbientShadowColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/recycler_notes">
 
