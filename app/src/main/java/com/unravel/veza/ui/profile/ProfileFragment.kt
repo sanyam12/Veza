@@ -162,13 +162,13 @@ class ProfileFragment : Fragment() {
             ref.putFile(imageUri)
                 .addOnCompleteListener {
                         OnCompleteListener<UploadTask.TaskSnapshot>() {
-                            Snackbar.make(requireView(), "success", Snackbar.LENGTH_INDEFINITE)
+                            Snackbar.make(requireView().findViewById(R.id.button7), "success", Snackbar.LENGTH_SHORT)
                                 .setAction("action", null).show()
                     }
                 }
                 .addOnSuccessListener {
                     OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        Snackbar.make(requireView(), "success", Snackbar.LENGTH_INDEFINITE)
+                        Snackbar.make(requireView().findViewById(R.id.button7), "success", Snackbar.LENGTH_INDEFINITE)
                             .setAction("action", null).show()
                     }
                 }

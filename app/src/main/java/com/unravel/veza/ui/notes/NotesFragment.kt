@@ -1,31 +1,43 @@
 package com.unravel.veza.ui.notes
 
 import android.app.Activity.RESULT_OK
+import android.content.ContentResolver
 import android.content.Intent
+import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
+import android.provider.OpenableColumns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.view.menu.MenuView
+import androidx.core.net.toFile
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.unravel.veza.R
 import com.unravel.veza.databinding.FragmentNotesBinding
 import com.unravel.veza.databinding.FragmentProfileBinding
 import com.unravel.veza.ui.profile.ProfileFragmentViewModel
+import java.io.File
+import java.io.InputStream
 
 
 class NotesFragment : Fragment() {
     private lateinit var notesFragmentViewModel: NotesFragmentViewModel
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
+    private lateinit var pdfName: String
 
-    private val pdf:Int = 0
     private lateinit var uri: Uri
     private var storageReference = FirebaseStorage.getInstance().getReference()
 
@@ -59,39 +71,70 @@ class NotesFragment : Fragment() {
             adapter.notifyDataSetChanged()
         }
 
+        val uploadCard: View = view.findViewById<View>(R.id.recycler_notes)
+        uploadCard.visibility = View.GONE
         val newNotes: FloatingActionButton = view.findViewById(R.id.floatingActionButton3)
         newNotes.setOnClickListener{
-            SelectImage()
-            UploadImage()
+            uploadCard.visibility = View.VISIBLE
+        }
+        val selectBt: Button = view.findViewById(R.id.button4)
+        selectBt.setOnClickListener{
+            SelectPdf()
+            val check: TextView = view.findViewById(R.id.textView22)
+            if(check.text == "No File selected")
+                selectBt.text = "Change PDF"
+            else
+                check.text = "No File selected"
+        }
+        val save: Button = view.findViewById(R.id.button8)
+        save.setOnClickListener{
+            save.visibility = View.VISIBLE
         }
 
 
 
-
     }
-    private fun SelectImage() {
+
+    private fun SelectPdf() {
         val intent = Intent(Intent.ACTION_GET_CONTENT).setType("application/pdf")
         val chooser = Intent.createChooser(intent, "Select PDF")
         startActivityForResult(chooser, 100)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode==100 && resultCode!=RESULT_OK)
+        if(requestCode==100 && resultCode==RESULT_OK)
         {
             uri = data?.data!!
+
         }
     }
 
-    private fun UploadImage() {
-        if(uri!=null)
-        {
+    private fun UploadPdf() {
+            val db = FirebaseFirestore.getInstance()
+            var i: Int = 0
+            db.collection("notesCount").document("number").get()
+                .addOnSuccessListener {
+                    i = it.get("count").toString().toInt()
+                }
             val id = FirebaseAuth.getInstance().currentUser?.uid
-            val ref = storageReference.child("notes/$id")
+            val ref = storageReference.child("pdf/notes/$id/$i")
+            i++
+            ref.putFile(uri).addOnSuccessListener {
+                db.collection("notesCount").document("number").update("count", i)
+                Snackbar.make(requireActivity().findViewById(R.id.floatingActionButton3),
+                    "file has been uploaded", Snackbar.LENGTH_SHORT )
+                    .setAction("action", null).show()
+            }.addOnProgressListener {
+                Toast.makeText(activity, "uploading", Toast.LENGTH_SHORT)
+            }.addOnFailureListener{
+                Snackbar.make(requireActivity().findViewById(R.id.floatingActionButton3),
+                    "error occured", Snackbar.LENGTH_SHORT )
+                    .setAction("action", null).show()
+            }
 
-
-        }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
