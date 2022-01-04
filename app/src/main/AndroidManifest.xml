@@ -37,6 +37,7 @@
         <activity android:name=".SignIn" />
         <activity android:name=".Timer" />
         <activity android:name=".PostAct" />
+        <activity android:name=".ui.notes.UploadNotes"/>
     </application>
 
 </manifest>

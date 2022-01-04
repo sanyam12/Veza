@@ -57,8 +57,6 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val uploadCard: View = view.findViewById<View>(R.id.recycler_notes)
-        uploadCard.visibility = View.GONE
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler_notes)
         recyclerView.visibility = View.VISIBLE
         recyclerView.layoutManager = LinearLayoutManager(view.context)
@@ -75,24 +73,9 @@ class NotesFragment : Fragment() {
 
         val newNotes: FloatingActionButton = view.findViewById(R.id.floatingActionButton3)
         newNotes.setOnClickListener{
-            //uploadCard.visibility = View.VISIBLE
+            val intent = Intent(activity, UploadNotes::class.java)
+            startActivity(intent)
         }
-        val selectBt: Button = view.findViewById(R.id.button4)
-        selectBt.setOnClickListener{
-            SelectPdf()
-            val check: TextView = view.findViewById(R.id.textView22)
-            if(check.text == "No File selected")
-                selectBt.text = "Change PDF"
-            else
-                check.text = "No File selected"
-        }
-        val save: Button = view.findViewById(R.id.button8)
-        save.setOnClickListener{
-            UploadPdf()
-            uploadCard.visibility = View.GONE
-        }
-
-
 
     }
 
