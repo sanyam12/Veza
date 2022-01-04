@@ -43,16 +43,9 @@ class UploadNotes:AppCompatActivity() {
         val ref = storageReference.child("pdf/notes/$id/$i")
         i++
         ref.putFile(uri).addOnSuccessListener {
-            db.collection("notesCount").document("number").update("count", i)
-            Snackbar.make(findViewById(R.id.floatingActionButton3),
-                "file has been uploaded", Snackbar.LENGTH_SHORT )
-                .setAction("action", null).show()
-        }.addOnProgressListener {
-            Toast.makeText(this, "uploading", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "uploaded", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener{
-            Snackbar.make(this.findViewById(R.id.floatingActionButton3),
-                "error occured", Snackbar.LENGTH_SHORT )
-                .setAction("action", null).show()
+            Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
         }
 
     }

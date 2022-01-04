@@ -36,7 +36,6 @@ class NotesFragment : Fragment() {
     private lateinit var notesFragmentViewModel: NotesFragmentViewModel
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var pdfName: String
 
     private lateinit var uri: Uri
     private var storageReference = FirebaseStorage.getInstance().getReference()
