@@ -1,6 +1,6 @@
 # Android-Study-Jams
 
-Veza
+Veza (Croatian word meaning "To Connect")
 
 <b> Project Description: </b>
 
