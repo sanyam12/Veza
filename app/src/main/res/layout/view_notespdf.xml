@@ -6,31 +6,32 @@
     android:layout_height="match_parent"
     android:background="@drawable/whitebackground">
 
-
     <Button
         android:id="@+id/button2"
-        android:layout_width="152dp"
+        android:layout_width="147dp"
         android:layout_height="70dp"
-        android:text="Download"
+        android:text="Save"
         android:textAllCaps="false"
-        android:theme="@style/jungle_green"
         android:textSize="20sp"
+        android:theme="@style/jungle_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351" />
+        app:layout_constraintVertical_bias="0.365" />
 
     <Button
-        android:id="@+id/button9"
-        android:layout_width="153dp"
-        android:layout_height="67dp"
-        android:text="Get Text From file"
+        android:id="@+id/button10"
+        android:layout_width="147dp"
+        android:layout_height="70dp"
+        android:text="Get text from file"
+        android:textAllCaps="false"
+        android:textSize="20sp"
         android:theme="@style/jungle_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.561" />
 </androidx.constraintlayout.widget.ConstraintLayout>

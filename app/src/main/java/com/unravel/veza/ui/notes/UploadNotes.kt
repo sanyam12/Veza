@@ -83,6 +83,7 @@ class UploadNotes:AppCompatActivity() {
                 db.collection("desc").document("${mauth.currentUser?.uid.toString()}").get()
                     .addOnSuccessListener {
                         val name = it.get("displayName").toString()
+                        val document = HashMap<String, HashMap<String, HashMap<String, String>>>()
                         val map =  HashMap<String, String>()
                         map["author"] = name
                         map["tittle"] = pdfName
@@ -90,11 +91,18 @@ class UploadNotes:AppCompatActivity() {
                         map["views"] = "0"
                         map["i"] = i.toString()
                         file["$i"] = map
+                        document["notes"] = file
 
-                        db.collection("notesCount").document("notes").set(file)
+//                        db.collection("notesCount").document("notes").set(file)
+//                            .addOnSuccessListener {
+//                                Toast.makeText(this, "firestore working", Toast.LENGTH_SHORT).show()
+//                            }
+
+                        db.collection("notesCount").document("notes").update(file as Map<String, Any>)
                             .addOnSuccessListener {
-                                Toast.makeText(this, "firestore working", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Firestore Updated", Toast.LENGTH_SHORT).show()
                             }
+
                     }
 
 

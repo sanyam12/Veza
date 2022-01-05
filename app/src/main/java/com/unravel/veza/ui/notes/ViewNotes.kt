@@ -10,7 +10,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.os.Environment.DIRECTORY_DOWNLOADS
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
@@ -26,20 +25,18 @@ class ViewNotes:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_notespdf)
-        val download: Button = findViewById(R.id.button2)
-        download.setOnClickListener{
-            val i: String = intent.getStringExtra("i").toString()
-            val uid: String = intent.getStringExtra("uid").toString()
 
-            val fileRef = storageReference.child("pdf/notes/$uid/$i")
-            val fileName = intent.getStringExtra("title")
-            val file = File(Environment.DIRECTORY_DOWNLOADS)
-            fileRef.downloadUrl.addOnSuccessListener {
-                val uri:String = it.toString()
-                downloadFiles(this, fileName!!,".pdf", DIRECTORY_DOWNLOADS, uri)
-            }.addOnFailureListener{
-                Toast.makeText(this, "file not found", Toast.LENGTH_SHORT).show()
-            }
+        val i: String = intent.getStringExtra("i").toString()
+        val uid: String = intent.getStringExtra("uid").toString()
+
+        val fileRef = storageReference.child("pdf/notes/$uid/$i")
+        val fileName = intent.getStringExtra("title")
+        val file = File(Environment.DIRECTORY_DOWNLOADS)
+        fileRef.downloadUrl.addOnSuccessListener {
+            val uri:String = it.toString()
+            downloadFiles(this, fileName!!,".pdf", DIRECTORY_DOWNLOADS, uri)
+        }.addOnFailureListener{
+            Toast.makeText(this, "file not found", Toast.LENGTH_SHORT).show()
         }
 
     }
