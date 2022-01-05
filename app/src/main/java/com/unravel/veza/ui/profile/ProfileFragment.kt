@@ -160,17 +160,9 @@ class ProfileFragment : Fragment() {
             val id = FirebaseAuth.getInstance().currentUser?.uid
             val ref: StorageReference = FirebaseStorage.getInstance().getReference("images/$id/profile_pic")
             ref.putFile(imageUri)
-                .addOnCompleteListener {
-                        OnCompleteListener<UploadTask.TaskSnapshot>() {
-                            Snackbar.make(requireView().findViewById(R.id.button7), "success", Snackbar.LENGTH_SHORT)
-                                .setAction("action", null).show()
-                    }
-                }
                 .addOnSuccessListener {
-                    OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        Snackbar.make(requireView().findViewById(R.id.button7), "success", Snackbar.LENGTH_INDEFINITE)
-                            .setAction("action", null).show()
-                    }
+                        Toast.makeText(activity, "Profile photo changed", Toast.LENGTH_SHORT).show()
+
                 }
                 .addOnFailureListener{
                     OnFailureListener(){
