@@ -12,8 +12,8 @@ VEZA is basically an online platform for questioning and answering. This app des
 1. Doubts solving: Being the key feature of this app, you can simply ask your academical doubts in this section irresepective of your branch or subject which will be streamed to other users and allowing them to respond you within seconds. 
 2. Uploading of Notes: Helping you with the feature of uploading and downloading the images and pdfs of the informations shared by your fellows
 3. Pomodoro: A basic time management tab, to provide our users with a timer to set their work and time according to their schedule. This will surely help you with your day to day productivity.
-![combineveza1](https://user-images.githubusercontent.com/96609856/148262436-11b19d1b-dbcb-405e-abb5-f8f71c5a2fc7.jpeg)
-![combineveza2](https://user-images.githubusercontent.com/96609856/148262469-74a6731b-cf16-42ba-8ddb-6725f53c86a1.jpeg)
+<img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148262436-11b19d1b-dbcb-405e-abb5-f8f71c5a2fc7.jpeg">
+<img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148262469-74a6731b-cf16-42ba-8ddb-6725f53c86a1.jpeg">
 
 
 
