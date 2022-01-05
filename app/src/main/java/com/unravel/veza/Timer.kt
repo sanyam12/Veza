@@ -28,7 +28,7 @@ class Timer : AppCompatActivity() {
             val tex: TextView = findViewById(R.id.textView16)
             tex.text = target.toString()
             val i:TextView = findViewById(R.id.index)
-            i.text = "asd"
+            i.text = getString(R.string.asd)
             object: CountDownTimer(1000* 60 * target, 1000)
             {
                 override fun onTick(millisUntilFinished: Long) {
@@ -38,7 +38,7 @@ class Timer : AppCompatActivity() {
                 }
 
                 override fun onFinish() {
-                    i.text = "FINISHED"
+                    i.text = getString(R.string.Finished)
                 }
             }.start()
 

@@ -43,4 +43,7 @@
     <string name="write_your_answer_here">Write your answer here</string>
     <string name="post">POST</string>
     <string name="answer">Answer</string>
+    <string name="enter_time">ENTER TIME</string>
+    <string name="Finished">FINISHED</string>
+    <string name="asd">asd</string>
 </resources>
