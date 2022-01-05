@@ -76,7 +76,7 @@ class ProfileFragment : Fragment() {
         val dp: ImageView = view.findViewById(R.id.imageView5)
         val mauth = FirebaseAuth.getInstance()
         val dp_location = mauth.currentUser?.uid
-        val url: String = "images/$dp_location/profile_pic"
+        val url = "images/$dp_location/profile_pic"
         val max_bytes:Long = 1024*1024
 
         val imgRef = storageReference.child(url)
@@ -160,17 +160,9 @@ class ProfileFragment : Fragment() {
             val id = FirebaseAuth.getInstance().currentUser?.uid
             val ref: StorageReference = FirebaseStorage.getInstance().getReference("images/$id/profile_pic")
             ref.putFile(imageUri)
-                .addOnCompleteListener {
-                        OnCompleteListener<UploadTask.TaskSnapshot>() {
-                            Snackbar.make(requireView().findViewById(R.id.button7), "success", Snackbar.LENGTH_SHORT)
-                                .setAction("action", null).show()
-                    }
-                }
                 .addOnSuccessListener {
-                    OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        Snackbar.make(requireView().findViewById(R.id.button7), "success", Snackbar.LENGTH_INDEFINITE)
-                            .setAction("action", null).show()
-                    }
+                        Toast.makeText(activity, "Profile photo changed", Toast.LENGTH_SHORT).show()
+
                 }
                 .addOnFailureListener{
                     OnFailureListener(){

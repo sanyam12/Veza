@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.unravel.veza.R
@@ -63,12 +64,26 @@ class NotesFragment : Fragment() {
         val userlist: ArrayList<PostDB> = arrayListOf()
         val adapter: PostAdapter = PostAdapter(userlist, view.context)
         recyclerView.adapter=adapter
-        for(i in 1..100)
-        {
-            val item: PostDB = PostDB("123", "name $i", "author $i", "1")
-            userlist.add(item)
-            adapter.notifyDataSetChanged()
-        }
+        val db = FirebaseFirestore.getInstance()
+        db.collection("notesCount").document("notes").get()
+            .addOnSuccessListener {
+                val data: Map<String, Map<String, String>> = it.data as Map<String, Map<String,String>>
+                for(i in data.entries)
+                {
+                    val item = PostDB(i.value["uid"].toString(), i.value["tittle"].toString(), i.value["author"].toString(), i.value["views"].toString(), i.value["i"].toString())
+                    userlist.add(item)
+                    adapter.notifyDataSetChanged()
+                }
+            }
+
+
+
+//        for(i in 1..100)
+//        {
+//            val item: PostDB = PostDB("123", "name $i", "author $i", "1")
+//            userlist.add(item)
+//            adapter.notifyDataSetChanged()
+//        }
 
         val newNotes: FloatingActionButton = view.findViewById(R.id.floatingActionButton3)
         newNotes.setOnClickListener{

@@ -1,6 +1,7 @@
 package com.unravel.veza.ui.notes
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,13 @@ class PostAdapter(private val posts: ArrayList<PostDB>, private val context: Con
         holder.fileName.text = curr_post.fileName
         holder.author.text = curr_post.author
         holder.views.text = curr_post.views
+        holder.fileName.setOnClickListener{
+            val intent = Intent(it.context, ViewNotes::class.java)
+            intent.putExtra("uid", curr_post.uid)
+            intent.putExtra("i", curr_post.i.toString())
+            intent.putExtra("title", curr_post.fileName)
+            it.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

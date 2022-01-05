@@ -77,6 +77,27 @@ class UploadNotes:AppCompatActivity() {
                         Snackbar.make(findViewById(R.id.textView20), "uploading you file", Snackbar.LENGTH_SHORT)
                             .setAction("action", null).show()
                 }
+
+                val file = HashMap<String, HashMap<String, String>>()
+                val mauth = FirebaseAuth.getInstance()
+                db.collection("desc").document("${mauth.currentUser?.uid.toString()}").get()
+                    .addOnSuccessListener {
+                        val name = it.get("displayName").toString()
+                        val map =  HashMap<String, String>()
+                        map["author"] = name
+                        map["tittle"] = pdfName
+                        map["uid"] = mauth.currentUser?.uid.toString()
+                        map["views"] = "0"
+                        map["i"] = i.toString()
+                        file["$i"] = map
+
+                        db.collection("notesCount").document("notes").set(file)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "firestore working", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+
+
             }
 
     }
