@@ -41,6 +41,7 @@
         <activity android:name=".PostAct" />
         <activity android:name=".ui.notes.UploadNotes"/>
         <activity android:name=".ui.notes.ViewNotes"/>
+        <activity android:name=".Doubts"/>
     </application>
 
 </manifest>

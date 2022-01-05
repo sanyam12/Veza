@@ -37,6 +37,11 @@
         android:name="com.unravel.veza.ui.notes.NotesFragment"
         android:label="Notes Section"
         tools:layout="@layout/fragment_notes" />
+    <activity
+        android:id="@+id/doubts"
+        android:name="com.unravel.veza.Doubts"
+        android:label="activity_doubts"
+        tools:layout="@layout/activity_doubts" />
 
 
 </navigation>
