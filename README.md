@@ -12,10 +12,10 @@ VEZA is basically an online platform for questioning and answering. This app des
 1. Doubts solving: Being the key feature of this app, you can simply ask your academical doubts in this section irresepective of your branch or subject which will be streamed to other users and allowing them to respond you within seconds. 
 2. Uploading of Notes: Helping you with the feature of uploading and downloading the images and pdfs of the informations shared by your fellows
 3. Pomodoro: A basic time management tab, to provide our users with a timer to set their work and time according to their schedule. This will surely help you with your day to day productivity.
-<img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256141-044d52e5-92ae-4332-8e87-fce57d2ad7bf.jpg">
-<img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256178-a8a78132-ff52-40e1-a042-e28b52c7888e.jpg">
-<img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256200-a9998126-e840-443a-be77-fd83b631bee8.jpg">
-<img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256246-977eb487-6ed6-4aae-99ef-5b2a6d5c5233.jpg">
+<img width="250" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256141-044d52e5-92ae-4332-8e87-fce57d2ad7bf.jpg">
+<img width="250" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256178-a8a78132-ff52-40e1-a042-e28b52c7888e.jpg">
+<img width="250" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256200-a9998126-e840-443a-be77-fd83b631bee8.jpg">
+<img width="250" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256246-977eb487-6ed6-4aae-99ef-5b2a6d5c5233.jpg">
 <img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256282-0b4d9aa3-096a-481e-9e99-27b3e66fae2e.jpg">
 <img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256314-5c086534-356d-47fc-b62e-ee152b7d7b29.jpg">
 <img width="559" alt="sampleimages" src = "https://user-images.githubusercontent.com/96609856/148256332-7e6da554-1c62-4c87-afd9-8d269dd85179.jpg">
