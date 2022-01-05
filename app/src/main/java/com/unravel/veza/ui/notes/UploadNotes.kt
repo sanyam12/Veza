@@ -88,6 +88,7 @@ class UploadNotes:AppCompatActivity() {
                         map["tittle"] = pdfName
                         map["uid"] = mauth.currentUser?.uid.toString()
                         map["views"] = "0"
+                        map["i"] = i.toString()
                         file["$i"] = map
 
                         db.collection("notesCount").document("notes").set(file)

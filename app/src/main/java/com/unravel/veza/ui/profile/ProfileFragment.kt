@@ -76,7 +76,7 @@ class ProfileFragment : Fragment() {
         val dp: ImageView = view.findViewById(R.id.imageView5)
         val mauth = FirebaseAuth.getInstance()
         val dp_location = mauth.currentUser?.uid
-        val url: String = "images/$dp_location/profile_pic"
+        val url = "images/$dp_location/profile_pic"
         val max_bytes:Long = 1024*1024
 
         val imgRef = storageReference.child(url)
