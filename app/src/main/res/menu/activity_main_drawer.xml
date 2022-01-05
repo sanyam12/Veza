@@ -28,5 +28,9 @@
             android:id="@+id/notesFragment"
             android:icon="@drawable/logo"
             android:title="Notes"/>
+        <item
+            android:id="@+id/doubts"
+            android:icon="@drawable/logo"
+            android:title="Doubts"/>
     </group>
 </menu>
