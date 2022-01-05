@@ -70,6 +70,7 @@ class NotesFragment : Fragment() {
                 val data: Map<String, Map<String, String>> = it.data as Map<String, Map<String,String>>
                 for(i in data.entries)
                 {
+                    Toast.makeText(context, i.key, Toast.LENGTH_SHORT).show()
                     val item = PostDB(i.value["uid"].toString(), i.value["tittle"].toString(), i.value["author"].toString(), i.value["views"].toString(), i.value["i"].toString())
                     userlist.add(item)
                     adapter.notifyDataSetChanged()
