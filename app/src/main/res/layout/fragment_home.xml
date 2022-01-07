@@ -13,7 +13,7 @@
         android:id="@+id/imageView4"
         android:layout_width="396dp"
         android:layout_height="485dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="4dp"
         android:src="@drawable/bubbles1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

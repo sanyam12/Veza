@@ -5,6 +5,7 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -24,27 +25,36 @@ class Timer : AppCompatActivity() {
         startbt.setOnClickListener{
             val enterMin: EditText = findViewById(R.id.editTextTime)
             val time = enterMin.text.toString()
-            val target: Long = Integer.parseInt(time).toLong()
-            val tex: TextView = findViewById(R.id.textView16)
-            tex.text = target.toString()
-            val i:TextView = findViewById(R.id.index)
-            i.text = getString(R.string.asd)
-            object: CountDownTimer(1000* 60 * target, 1000)
+            if(time.contains("."))
             {
-                override fun onTick(millisUntilFinished: Long) {
-                    val s: String = (counter/60).toString() + ":" + (counter%60).toString()
-                    i.text = s
-                    counter++
-                }
+                Toast.makeText(this, "Invalid time, use Int type of minutes only", Toast.LENGTH_SHORT).show()
 
-                override fun onFinish() {
-                    i.text = getString(R.string.Finished)
-                }
-            }.start()
+            }
+            else
+            {
+                val target: Long = Integer.parseInt(time).toLong()
+                val tex: TextView = findViewById(R.id.textView16)
+                tex.text = target.toString()
+                val i:TextView = findViewById(R.id.index)
+                i.text = getString(R.string.asd)
+                object: CountDownTimer(1000* 60 * target, 1000)
+                {
+                    override fun onTick(millisUntilFinished: Long) {
+                        val s: String = (counter/60).toString() + ":" + (counter%60).toString()
+                        i.text = s
+                        counter++
+                    }
 
-            startbt.visibility = View.GONE
-            pausebt.visibility = View.VISIBLE
-            stopbt.visibility = View.VISIBLE
+                    override fun onFinish() {
+                        i.text = getString(R.string.Finished)
+                    }
+                }.start()
+
+                startbt.visibility = View.GONE
+                pausebt.visibility = View.VISIBLE
+                stopbt.visibility = View.VISIBLE
+            }
+
 
 
         }
