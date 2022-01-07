@@ -108,9 +108,9 @@ class SignUp:AppCompatActivity() {
 
     }
 
-    private fun signin()
-    {
-
-    }
+//    private fun signin()
+//    {
+//
+//    }
 
 }
