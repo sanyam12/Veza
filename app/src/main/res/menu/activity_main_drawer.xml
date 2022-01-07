@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/profileFragment"
-            android:icon="@drawable/logo"
+            android:icon="@drawable/ic_action_name"
             android:title="Profile"/>
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/home_icon"
             android:title="@string/menu_home" />
 <!--        <item-->
 <!--            android:id="@+id/nav_gallery"-->
@@ -22,15 +22,15 @@
 <!--            android:title="@string/menu_slideshow" />-->
         <item
             android:id="@+id/timer"
-            android:icon="@drawable/logo"
+            android:icon="@drawable/timer_icon"
             android:title="Pomodoro"/>
         <item
             android:id="@+id/notesFragment"
-            android:icon="@drawable/logo"
+            android:icon="@drawable/notes_icon"
             android:title="Notes"/>
         <item
             android:id="@+id/doubts"
-            android:icon="@drawable/logo"
+            android:icon="@drawable/doubts_icon"
             android:title="Doubts"/>
     </group>
 </menu>
