@@ -1,8 +1,11 @@
 # Android-Study-Jams
+## DSC NITJ Verified - WINNING PROJECT OF ANDRO CONTEST 
 
 Veza (Croatian word meaning "To Connect")
 
 <b> Project Description: </b>
+
+
 
 This app has very simple and interactive interface which helps the students to register or sign in without providing any detailed instruction pages. App also uses app navigation to switch between different screens. We seek to provide more log in options like log in with google and otp system to log in with your phone numbers, once the app is tested and functional.
 
