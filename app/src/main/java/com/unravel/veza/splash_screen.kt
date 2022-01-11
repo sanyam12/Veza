@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -14,6 +17,10 @@ class splash_screen : AppCompatActivity() {
         setContentView(R.layout.splash_screen)
 
         val a = 4000
+        val anim: LottieAnimationView = findViewById(R.id.test_anim)
+        val boy: Animation = AnimationUtils.loadAnimation(this, R.anim.boy)
+        anim.animation = boy
+
 
         if(FirebaseAuth.getInstance().currentUser==null){
             Handler().postDelayed({

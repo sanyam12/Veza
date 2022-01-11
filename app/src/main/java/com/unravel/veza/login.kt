@@ -13,6 +13,7 @@ class login:AppCompatActivity() {
 
         val signupbt: Button = findViewById(R.id.signup)
         val signinbt: Button = findViewById(R.id.signin)
+        val phonebt: Button = findViewById(R.id.button11)
 
         if(intent.getStringExtra("bool")=="true")
         {
@@ -28,6 +29,12 @@ class login:AppCompatActivity() {
 
         signupbt.setOnClickListener{
             val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        phonebt.setOnClickListener{
+            val intent = Intent(this, PhoneLogin::class.java)
             startActivity(intent)
             finish()
         }

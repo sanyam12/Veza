@@ -47,4 +47,20 @@
         app:layout_constraintHorizontal_bias="0.749"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="270dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="24dp"
+        android:text="Login Wth Phone No."
+        android:textAllCaps="false"
+        android:background="@drawable/round50"
+        android:theme="@style/sea_green"
+        app:layout_constraintBottom_toTopOf="@+id/signup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
 </androidx.constraintlayout.widget.ConstraintLayout>

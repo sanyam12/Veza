@@ -42,6 +42,7 @@
         <activity android:name=".ui.notes.UploadNotes"/>
         <activity android:name=".ui.notes.ViewNotes"/>
         <activity android:name=".Doubts"/>
+        <activity android:name=".PhoneLogin"/>
     </application>
 
 </manifest>
