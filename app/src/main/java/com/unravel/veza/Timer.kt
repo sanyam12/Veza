@@ -35,8 +35,10 @@ class Timer : AppCompatActivity() {
 
         val startbt: FloatingActionButton = findViewById(R.id.floatingActionButton1)
         val pausebt: FloatingActionButton = findViewById(R.id.floatingActionButton)
-        val stopbt: FloatingActionButton = findViewById(R.id.floatingActionButton2)
+        val resumebt: FloatingActionButton = findViewById(R.id.floatingActionButton2)
+        val stopbt: FloatingActionButton = findViewById(R.id.floatingActionButton4)
         pausebt.visibility = View.GONE
+        resumebt.visibility = View.GONE
         stopbt.visibility = View.GONE
         startbt.setOnClickListener{
             val enterMin: EditText = findViewById(R.id.editTextTime)
@@ -74,26 +76,31 @@ class Timer : AppCompatActivity() {
 
                 pausebt.setOnClickListener{
                     timerPause(timer)
+                    resumebt.visibility = View.VISIBLE
+                    pausebt.visibility = View.GONE
                 }
 
-                stopbt.setOnClickListener{
+                resumebt.setOnClickListener{
                     timerResume(timer)
+                    resumebt.visibility = View.GONE
+                    pausebt.visibility = View.VISIBLE
+                }
+                stopbt.setOnClickListener{
+                    timerPause(timer)
+                    i.text = "START"
                 }
             }
-
 
 
         }
 
     }
 
-    private fun timerPause(timer: CountDownTimer)
-    {
+    private fun timerPause(timer: CountDownTimer) {
         timer.cancel()
     }
 
-    private fun timerResume(timer: CountDownTimer)
-    {
+    private fun timerResume(timer: CountDownTimer) {
         timer.start()
     }
 
