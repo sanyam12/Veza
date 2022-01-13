@@ -11,6 +11,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Timer : AppCompatActivity() {
     var counter = 0
+    private var milliLeft: Long = 0
 
     fun isValidTime(time:String):Boolean{
 //        for(i in timer)
@@ -46,14 +47,15 @@ class Timer : AppCompatActivity() {
             }
             else
             {
-                val target: Long = Integer.parseInt(time).toLong()
+                var target: Long = Integer.parseInt(time).toLong()
                 val tex: TextView = findViewById(R.id.textView16)
                 tex.text = target.toString()
                 val i:TextView = findViewById(R.id.index)
                 i.text = getString(R.string.asd)
-                object: CountDownTimer(1000* 60 * target, 1000)
+                val timer = object: CountDownTimer(1000* 60 * target, 1000)
                 {
                     override fun onTick(millisUntilFinished: Long) {
+                        target = millisUntilFinished
                         val s: String = (counter/60).toString() + ":" + (counter%60).toString()
                         i.text = s
                         counter++
@@ -62,11 +64,21 @@ class Timer : AppCompatActivity() {
                     override fun onFinish() {
                         i.text = getString(R.string.Finished)
                     }
-                }.start()
+
+                }
+                timer.start()
 
                 startbt.visibility = View.GONE
                 pausebt.visibility = View.VISIBLE
                 stopbt.visibility = View.VISIBLE
+
+                pausebt.setOnClickListener{
+                    timerPause(timer)
+                }
+
+                stopbt.setOnClickListener{
+                    timerResume(timer)
+                }
             }
 
 
@@ -74,6 +86,17 @@ class Timer : AppCompatActivity() {
         }
 
     }
+
+    private fun timerPause(timer: CountDownTimer)
+    {
+        timer.cancel()
+    }
+
+    private fun timerResume(timer: CountDownTimer)
+    {
+        timer.start()
+    }
+
 
 //    fun startTimer(view: View){
 //        val countTime: TextView = findViewById(R.id.textView3)
@@ -89,7 +112,6 @@ class Timer : AppCompatActivity() {
 //
 //        }.start()
 //    }
-
 
 
 }
