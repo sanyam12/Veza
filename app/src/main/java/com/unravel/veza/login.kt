@@ -33,10 +33,10 @@ class login:AppCompatActivity() {
             finish()
         }
 
-        phonebt.setOnClickListener{
-            val intent = Intent(this, PhoneLogin::class.java)
-            startActivity(intent)
-            finish()
-        }
+//        phonebt.setOnClickListener{
+//            val intent = Intent(this, PhoneLogin::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
     }
 }

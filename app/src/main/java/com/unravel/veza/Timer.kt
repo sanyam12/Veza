@@ -12,6 +12,21 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class Timer : AppCompatActivity() {
     var counter = 0
 
+    fun isValidTime(time:String):Boolean{
+//        for(i in timer)
+//        {
+//            if(i.code<48 && i.code>57)
+//            {
+//                return false
+//            }
+//        }
+        if(time.contains(".")||time.contains(",")||time.contains("-")||time.contains(" "))
+        {
+            return false
+        }
+        return true
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
@@ -25,10 +40,9 @@ class Timer : AppCompatActivity() {
         startbt.setOnClickListener{
             val enterMin: EditText = findViewById(R.id.editTextTime)
             val time = enterMin.text.toString()
-            if(time.contains("."))
+            if(!isValidTime(time))
             {
                 Toast.makeText(this, "Invalid time, use Int type of minutes only", Toast.LENGTH_SHORT).show()
-
             }
             else
             {

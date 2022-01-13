@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/phone_signin"
         android:layout_width="208dp"
         android:layout_height="64dp"
         android:layout_marginTop="96dp"
