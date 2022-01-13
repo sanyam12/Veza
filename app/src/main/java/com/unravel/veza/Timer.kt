@@ -87,7 +87,12 @@ class Timer : AppCompatActivity() {
                 }
                 stopbt.setOnClickListener{
                     timerPause(timer)
+                    target = 0
                     i.text = "START"
+                    startbt.visibility = View.VISIBLE
+                    pausebt.visibility = View.GONE
+                    resumebt.visibility = View.GONE
+                    stopbt.visibility = View.GONE
                 }
             }
 
