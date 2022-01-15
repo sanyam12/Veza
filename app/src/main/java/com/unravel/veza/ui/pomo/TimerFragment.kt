@@ -1,15 +1,45 @@
-package com.unravel.veza
+package com.unravel.veza.ui.pomo
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.unravel.veza.ui.pomo.TimerGroupFragment
+import com.unravel.veza.R
+import com.unravel.veza.databinding.FragmentTimerBinding
 
-class Timer : AppCompatActivity() {
+class TimerFragment : Fragment() {
+    private lateinit var timerFragment: TimerFragment
+    private var _binding: FragmentTimerBinding? = null
+    private val binding get() = _binding!!
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentTimerBinding.inflate(inflater, container, false)
+        val callback = object: OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                if(findNavController().currentDestination?.id == R.id.timerFragment)
+                    findNavController().navigate(R.id.action_timerFragment_to_timerGroupFragment)
+            }
+
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+        return  binding.root
+    }
+
     fun isValidTime(time:String):Boolean{
 //        for(i in timer)
 //        {
@@ -26,6 +56,15 @@ class Timer : AppCompatActivity() {
         }
         return true
     }
+
+    private fun timerPause(ti: t) {
+        ti.timer.cancel()
+    }
+
+    private fun timerResume(ti: t) {
+        ti.timer.start()
+    }
+
 
 
     inner class t(var target: Long, i:TextView, var counter: Long) {
@@ -47,34 +86,30 @@ class Timer : AppCompatActivity() {
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //title = "POMODORO"
 
-    override fun onCreate(
-        savedInstanceState: Bundle?
-    ) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_timer)
-        title = "POMODORO"
-
-        val startbt: FloatingActionButton = findViewById(R.id.floatingActionButton1)
-        val pausebt: FloatingActionButton = findViewById(R.id.floatingActionButton)
-        val resumebt: FloatingActionButton = findViewById(R.id.floatingActionButton2)
-        val stopbt: FloatingActionButton = findViewById(R.id.floatingActionButton4)
+        val startbt: FloatingActionButton = view.findViewById(R.id.floatingActionButton1)
+        val pausebt: FloatingActionButton = view.findViewById(R.id.floatingActionButton)
+        val resumebt: FloatingActionButton = view.findViewById(R.id.floatingActionButton2)
+        val stopbt: FloatingActionButton = view.findViewById(R.id.floatingActionButton4)
         pausebt.visibility = View.GONE
         resumebt.visibility = View.GONE
         stopbt.visibility = View.GONE
         startbt.setOnClickListener{
-            val enterMin: EditText = findViewById(R.id.editTextTime)
+            val enterMin: EditText = view.findViewById(R.id.editTextTime)
             val time = enterMin.text.toString()
             if(!isValidTime(time))
             {
-                Toast.makeText(this, "Invalid time", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Invalid time", Toast.LENGTH_SHORT).show()
             }
             else
             {
                 var target = Integer.parseInt(time).toLong()
-                val tex: TextView = findViewById(R.id.textView16)
+                val tex: TextView = view.findViewById(R.id.textView16)
                 tex.text = target.toString()
-                val i:TextView = findViewById(R.id.index)
+                val i: TextView = view.findViewById(R.id.index)
                 i.text = getString(R.string.asd)
 
 //                val timer = object: CountDownTimer(1000* 60 * target, 1000) {
@@ -124,42 +159,18 @@ class Timer : AppCompatActivity() {
 
         }
 
-        val groupbt: ImageButton = findViewById(R.id.imageButton7)
+        val groupbt: ImageButton = view.findViewById(R.id.imageButton7)
         groupbt.setOnClickListener{
-            val transaction:FragmentTransaction = supportFragmentManager.beginTransaction()
+            val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.timer_frame, TimerGroupFragment())
             transaction.addToBackStack("try")
             transaction.commit()
 
         }
 
+
     }
 
-
-
-    private fun timerPause(ti: t) {
-        ti.timer.cancel()
-    }
-
-    private fun timerResume(ti: t) {
-        ti.timer.start()
-    }
-
-
-//    fun startTimer(view: View){
-//        val countTime: TextView = findViewById(R.id.textView3)
-//        object : CountDownTimer(1000 * 1800, 1000) {
-//            override fun onTick(millisUntilFinished: Long) {
-//             countTime.text = counter.toString()
-//                counter++
-//            }
-//
-//            override fun onFinish() {
-//                countTime.text = getString(R.string.finished)
-//            }
-//
-//        }.start()
-//    }
 
 
 }

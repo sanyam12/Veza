@@ -1,36 +1,56 @@
 package com.unravel.veza.ui.notes
 
 import android.app.Activity.RESULT_OK
-import android.content.ContentResolver
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
-import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
-import android.provider.OpenableColumns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.Toast
-import androidx.appcompat.view.menu.MenuView
-import androidx.core.net.toFile
+import androidx.annotation.ContentView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.allattentionhere.fabulousfilter.AAH_FabulousFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.unravel.veza.R
 import com.unravel.veza.databinding.FragmentNotesBinding
-import com.unravel.veza.databinding.FragmentProfileBinding
-import com.unravel.veza.ui.profile.ProfileFragmentViewModel
-import java.io.File
-import java.io.InputStream
+
+
+
+
+class MySampleFabFragment: AAH_FabulousFragment() {
+    fun newInstance(): MySampleFabFragment? {
+        return MySampleFabFragment()
+    }
+
+    override fun setupDialog(dialog: Dialog, style: Int)
+    {
+        val contentView: View = View.inflate(context,R.layout.fab_sample,null)
+        val rl_content: RelativeLayout = contentView.findViewById(R.id.rl_content)
+        val ll_buttons: LinearLayout = contentView.findViewById(R.id.ll_buttons)
+        contentView.findViewById<Button>(R.id.btn_close).setOnClickListener {
+            closeFilter(
+                "closed"
+            )
+        }
+
+        setViewMain(rl_content)
+        setMainContentView(contentView)
+        super.setupDialog(dialog, style)
+    }
+}
 
 
 class NotesFragment : Fragment() {
@@ -88,8 +108,13 @@ class NotesFragment : Fragment() {
 
         val newNotes: FloatingActionButton = view.findViewById(R.id.floatingActionButton3)
         newNotes.setOnClickListener{
-            val intent = Intent(activity, UploadNotes::class.java)
-            startActivity(intent)
+//            val intent = Intent(activity, UploadNotes::class.java)
+//            startActivity(intent)
+
+            val dialogFrag: MySampleFabFragment? = MySampleFabFragment().newInstance()
+            dialogFrag!!.setParentFab(newNotes)
+            dialogFrag.show(requireActivity().supportFragmentManager, dialogFrag.getTag());
+
         }
 
     }

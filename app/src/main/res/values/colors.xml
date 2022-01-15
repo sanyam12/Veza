@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="sea_green">#75C598</color>
     <color name="jungle_green">#2AAA8A</color>
+    <color name="orange">#FFA500</color>
+    <color name="brown">#964B00</color>
 </resources>

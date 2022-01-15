@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/whitebackground">
 
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="97dp"
-        android:layout_height="72dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.003"
-        android:background="@null"
-        app:srcCompat="@drawable/back_transparent" />
-
     <Button
         android:id="@+id/button13"
         android:layout_width="wrap_content"

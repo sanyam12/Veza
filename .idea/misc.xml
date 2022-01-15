@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/layout/app_bar_home.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/content_home.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/content_parent_windows.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fab_sample.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/features.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.2953125" />
@@ -27,6 +28,7 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_timer.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/fragment_timer_menu.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/item_doubts.xml" value="0.1578125" />
         <entry key="app/src/main/res/layout/login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header_home.xml" value="0.4155844155844156" />

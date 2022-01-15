@@ -9,7 +9,17 @@
         android:id="@+id/nav_home"
         android:name="com.unravel.veza.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_notesFragment"
+            app:destination="@id/notesFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_timerFragment"
+            app:destination="@id/timerFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -26,7 +36,14 @@
         android:id="@+id/profileFragment"
         android:name="com.unravel.veza.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_profileFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+    </fragment>
     <activity
         android:id="@+id/timer"
         android:name="com.unravel.veza.Timer"
@@ -36,12 +53,42 @@
         android:id="@+id/notesFragment"
         android:name="com.unravel.veza.ui.notes.NotesFragment"
         android:label="Notes Section"
-        tools:layout="@layout/fragment_notes" />
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_viewNotes"
+            app:destination="@id/viewNotes" />
+    </fragment>
     <activity
         android:id="@+id/doubts"
         android:name="com.unravel.veza.Doubts"
         android:label="activity_doubts"
         tools:layout="@layout/activity_doubts" />
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.unravel.veza.ui.pomo.TimerFragment"
+        android:label="fragment_timer"
+        tools:layout="@layout/fragment_timer" >
+        <action
+            android:id="@+id/action_timerFragment_to_timerGroupFragment"
+            app:destination="@id/timerGroupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timerGroupFragment"
+        android:name="com.unravel.veza.ui.pomo.TimerGroupFragment"
+        android:label="TimerGroupFragment"
+        tools:layout="@layout/fragment_groups">
+        <action
+            android:id="@+id/action_timerGroupFragment_to_timerFragment"
+            app:destination="@id/timerFragment" />
+        <action
+            android:id="@+id/action_timerGroupFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/viewNotes"
+        android:name="com.unravel.veza.ui.notes.ViewNotes"
+        android:label="ViewNotes"
+        tools:layout="@layout/view_notespdf"/>
 
 
 </navigation>
