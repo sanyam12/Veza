@@ -8,10 +8,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.w3c.dom.Text
+import kotlin.properties.Delegates
 
 class Timer : AppCompatActivity() {
     var counter = 0
     private var milliLeft: Long = 0
+    private var target by Delegates.notNull<Long>()
+    private lateinit var i: TextView
 
     fun isValidTime(time:String):Boolean{
 //        for(i in timer)
@@ -27,6 +31,8 @@ class Timer : AppCompatActivity() {
         }
         return true
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,14 +55,16 @@ class Timer : AppCompatActivity() {
             }
             else
             {
-                var target: Long = Integer.parseInt(time).toLong()
+                target = Integer.parseInt(time).toLong()
+                var first: Boolean = false
                 val tex: TextView = findViewById(R.id.textView16)
                 tex.text = target.toString()
-                val i:TextView = findViewById(R.id.index)
+                i = findViewById(R.id.index)
                 i.text = getString(R.string.asd)
-                val timer = object: CountDownTimer(1000* 60 * target, 1000)
-                {
+
+                val timer = object: CountDownTimer(1000* 60 * target, 1000) {
                     override fun onTick(millisUntilFinished: Long) {
+                        //Toast.makeText(this@Timer, target.toString(), Toast.LENGTH_SHORT).show()
                         target = millisUntilFinished
                         val s: String = (counter/60).toString() + ":" + (counter%60).toString()
                         i.text = s
@@ -64,9 +72,9 @@ class Timer : AppCompatActivity() {
                     }
 
                     override fun onFinish() {
+
                         i.text = getString(R.string.Finished)
                     }
-
                 }
                 timer.start()
 
@@ -100,6 +108,7 @@ class Timer : AppCompatActivity() {
         }
 
     }
+
 
     private fun timerPause(timer: CountDownTimer) {
         timer.cancel()
