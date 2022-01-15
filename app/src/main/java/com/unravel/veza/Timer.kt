@@ -12,11 +12,6 @@ import org.w3c.dom.Text
 import kotlin.properties.Delegates
 
 class Timer : AppCompatActivity() {
-    var counter = 0
-    private var milliLeft: Long = 0
-    private var target by Delegates.notNull<Long>()
-    private lateinit var i: TextView
-
     fun isValidTime(time:String):Boolean{
 //        for(i in timer)
 //        {
@@ -32,6 +27,25 @@ class Timer : AppCompatActivity() {
         return true
     }
 
+
+    inner class t(var target: Long, i:TextView, var counter: Long) {
+        val timer = object: CountDownTimer(1000* 60 * target, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                //Toast.makeText(this@Timer, target.toString(), Toast.LENGTH_SHORT).show()
+                target = millisUntilFinished
+                val s: String = (counter/60).toString() + ":" + (counter%60).toString()
+                i.text = s
+                counter++
+            }
+
+            override fun onFinish() {
+
+                i.text = getString(R.string.Finished)
+            }
+        }
+
+
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,46 +69,49 @@ class Timer : AppCompatActivity() {
             }
             else
             {
-                target = Integer.parseInt(time).toLong()
+                var target = Integer.parseInt(time).toLong()
                 var first: Boolean = false
                 val tex: TextView = findViewById(R.id.textView16)
                 tex.text = target.toString()
-                i = findViewById(R.id.index)
+                val i:TextView = findViewById(R.id.index)
                 i.text = getString(R.string.asd)
+                var counter = 0
+//
+//                val timer = object: CountDownTimer(1000* 60 * target, 1000) {
+//                    override fun onTick(millisUntilFinished: Long) {
+//                        //Toast.makeText(this@Timer, target.toString(), Toast.LENGTH_SHORT).show()
+//                        target = millisUntilFinished
+//                        val s: String = (counter/60).toString() + ":" + (counter%60).toString()
+//                        i.text = s
+//                        counter++
+//                    }
+//
+//                    override fun onFinish() {
+//
+//                        i.text = getString(R.string.Finished)
+//                    }
+//                }
+                val ti = t(target,i, counter = 0)
+                ti.timer.start()
 
-                val timer = object: CountDownTimer(1000* 60 * target, 1000) {
-                    override fun onTick(millisUntilFinished: Long) {
-                        //Toast.makeText(this@Timer, target.toString(), Toast.LENGTH_SHORT).show()
-                        target = millisUntilFinished
-                        val s: String = (counter/60).toString() + ":" + (counter%60).toString()
-                        i.text = s
-                        counter++
-                    }
-
-                    override fun onFinish() {
-
-                        i.text = getString(R.string.Finished)
-                    }
-                }
-                timer.start()
 
                 startbt.visibility = View.GONE
                 pausebt.visibility = View.VISIBLE
                 stopbt.visibility = View.VISIBLE
 
                 pausebt.setOnClickListener{
-                    timerPause(timer)
+                    timerPause(ti)
                     resumebt.visibility = View.VISIBLE
                     pausebt.visibility = View.GONE
                 }
 
                 resumebt.setOnClickListener{
-                    timerResume(timer)
+                    timerResume(ti)
                     resumebt.visibility = View.GONE
                     pausebt.visibility = View.VISIBLE
                 }
                 stopbt.setOnClickListener{
-                    timerPause(timer)
+                    timerPause(ti)
                     target = 0
                     i.text = "START"
                     startbt.visibility = View.VISIBLE
@@ -110,12 +127,12 @@ class Timer : AppCompatActivity() {
     }
 
 
-    private fun timerPause(timer: CountDownTimer) {
-        timer.cancel()
+    private fun timerPause(ti: t) {
+        ti.timer.cancel()
     }
 
-    private fun timerResume(timer: CountDownTimer) {
-        timer.start()
+    private fun timerResume(ti: t) {
+        ti.timer.start()
     }
 
 
