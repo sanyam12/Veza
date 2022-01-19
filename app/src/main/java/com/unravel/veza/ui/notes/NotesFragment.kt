@@ -30,7 +30,7 @@ import com.unravel.veza.databinding.FragmentNotesBinding
 
 
 
-class MySampleFabFragment: AAH_FabulousFragment() {
+private class MySampleFabFragment: AAH_FabulousFragment() {
     fun newInstance(): MySampleFabFragment? {
         return MySampleFabFragment()
     }

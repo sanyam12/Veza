@@ -68,15 +68,6 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val callback = object: OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                if(findNavController().currentDestination?.id == R.id.profileFragment)
-                findNavController().navigate(R.id.action_profileFragment_to_nav_home)
-            }
-
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
-
         return root
     }
 
