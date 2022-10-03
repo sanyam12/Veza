@@ -75,7 +75,9 @@ class SignUp:AppCompatActivity() {
                 else ->{
                     val email: String = enterMail.text.toString().trim{it<=' '}
                     val password: String = enterPass.text.toString().trim{it<=' '}
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+                    val mauth = FirebaseAuth.getInstance()
+
+                    mauth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(
                             OnCompleteListener<AuthResult> {task ->
                                 if(task.isSuccessful)

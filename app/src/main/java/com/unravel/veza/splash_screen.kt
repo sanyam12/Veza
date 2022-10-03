@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
 class splash_screen : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
@@ -24,7 +25,7 @@ class splash_screen : AppCompatActivity() {
 
         if(FirebaseAuth.getInstance().currentUser==null){
             Handler().postDelayed({
-                val intent: Intent = Intent(this, login::class.java)
+                val intent = Intent(this, login::class.java)
                 startActivity(intent)
                 finish()
             }, a.toLong())
@@ -32,6 +33,7 @@ class splash_screen : AppCompatActivity() {
         {
             val db = FirebaseFirestore.getInstance()
             val mauth = FirebaseAuth.getInstance()
+
             db.collection("desc").document(mauth.uid.toString()).get().addOnSuccessListener {
                 if(!it.contains("displayName"))
                 {
@@ -40,8 +42,7 @@ class splash_screen : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     }, a.toLong())
-                }else
-                {
+                } else {
                     Handler().postDelayed({
                         val intent: Intent = Intent(this, home::class.java)
                         startActivity(intent)

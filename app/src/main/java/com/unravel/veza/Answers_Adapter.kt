@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class AnswersAdapter(private val items: ArrayList<String>, private val listener: DoubtsItemClicked): RecyclerView.Adapter<DoubtsViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DoubtsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_doubts, parent,false)
         val viewHolder = DoubtsViewHolder(view)
@@ -19,7 +20,6 @@ class AnswersAdapter(private val items: ArrayList<String>, private val listener:
     override fun onBindViewHolder(holder: DoubtsViewHolder, position: Int) {
         val currentItem = items[position]
         holder.titleView.text = currentItem
-
     }
 
     override fun getItemCount(): Int {
